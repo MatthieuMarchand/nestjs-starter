@@ -49,7 +49,7 @@ export class TodosService {
     }
 
     update(id: string, todo: Todo) {
-        const todoToUpdate = this.todos.find(todo => todo.id === +id); // +id = Number(id)
+        const todoToUpdate = this.todos.find(todo => todo.id === +id);
         if (!todoToUpdate) {
             return new NotFoundException('todo not found');
         }
@@ -60,7 +60,11 @@ export class TodosService {
             todoToUpdate.description = todo.description;
         }
         if (todo.hasOwnProperty('done')) {
-            todoToUpdate.done = todo.done;
+            if (todoToUpdate.done === false) {
+                todoToUpdate.done = true;
+            } else {
+                todoToUpdate.done = false;
+            }
         }
         const updatedTodos = this.todos.map(todo => todo.id !== +id ? todo : todoToUpdate)
         this.todos = [...updatedTodos];

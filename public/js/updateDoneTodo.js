@@ -1,10 +1,10 @@
-function deleteTodo(id) {
+function updateDoneTodo(id) {
     fetch(`/todos/${id}`, {
-        method: 'DELETE'
+        method: 'POST'
     })
     .then(response => {
         if (!response.ok) {
-            throw new Error('Erreur lors de la suppression du todo');
+            throw new Error('Erreur lors de l\' update du todo');
         }
         location.reload();
     })
