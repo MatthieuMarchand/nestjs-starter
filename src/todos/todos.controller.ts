@@ -1,4 +1,5 @@
-import { Controller, Get, Post, Body, Param, Patch, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Param, Patch, Delete, Res } from '@nestjs/common';
+import { Response } from 'express';
 import { TodosService } from './todos.service';
 import { Todo } from './interfaces/todo.interface';
 import { CreateTodoDto } from './dto/create-todo.dto';
@@ -9,7 +10,6 @@ export class TodosController {
 
     @Get(':id')
     findOne(@Param('id') id: string) {
-        console.log('id', id);
         return this.todosService.findOne(id);
     }
 
@@ -19,13 +19,23 @@ export class TodosController {
     }
 
     @Post()
-    createTodo(@Body() newTodo: CreateTodoDto) {
+    createTodo(@Body() newTodo: CreateTodoDto, @Res() res: Response) {
         this.todosService.create(newTodo);
+        res.set('Location', '/');
+        res.status(302).send();
     }
 
-    @Patch(':id')
-    updateTodo(@Param('id') id: string, @Body() todo: CreateTodoDto) {
-        return this.todosService.update(id, todo);
+    //! tuto yt
+    // @Patch(':id')
+    // updateTodo(@Param('id') id: string, @Body() todo: CreateTodoDto) {
+    //     return this.todosService.update(id, todo);
+    // }
+
+    @Post(':id')
+    updateTodo(@Param('id') id: string, @Body() todo: CreateTodoDto, @Res() res: Response) {
+        this.todosService.update(id, todo);
+        res.set('Location', '/');
+        res.status(302).send();
     }
 
     @Delete(':id')

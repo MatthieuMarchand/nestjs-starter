@@ -7,21 +7,21 @@ export class TodosService {
     todos: Todo[] = [
     {
         id: 1,
-        title: 'todos app',
-        description: 'Create NestJS todos app',
+        title: 'Manger',
+        description: 'Faire à manger',
         done: false,
     },
     {
         id: 2,
-        title: 'bread',
-        description: 'buy bread',
+        title: 'Boire',
+        description: 'Se préparer un chocolat chaud',
         done: true,
     },
     {
         id: 3,
-        title: 'wine',
-        description: 'buy wine',
-        done: true,
+        title: 'Se doucher',
+        description: 'Aller prendre une douche',
+        done: false,
     },
     ];
 
@@ -33,8 +33,19 @@ export class TodosService {
         return this.todos;
     }
 
+    //! tuto yt
+    // create(todo: CreateTodoDto) {
+    //     this.todos = [...this.todos, todo];
+    // }
+
     create(todo: CreateTodoDto) {
-        this.todos = [...this.todos, todo];
+        const newTodo: Todo = {
+            id: this.todos.length + 1,
+            title: todo.title,
+            description: todo.description,
+            done: false,
+        };
+        this.todos.push(newTodo);
     }
 
     update(id: string, todo: Todo) {
