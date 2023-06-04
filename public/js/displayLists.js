@@ -6,7 +6,6 @@ const buttonNotDone = document.getElementById("buttonNotDone");
 lineListButtons.style.left = (buttonDone.offsetLeft + buttonDone.offsetWidth/2) + "px";
 lineListButtons.style.width = (buttonDone.offsetWidth - 10) + "px";
 listDone.style.display = "none";
-// lineListButtons.style.transition = ".6s ease-in-out";
 
 function doneDisplayed() {
     listNotDone.style.display = "none";

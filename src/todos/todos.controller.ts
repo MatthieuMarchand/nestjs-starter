@@ -25,12 +25,6 @@ export class TodosController {
         res.status(302).send();
     }
 
-    //! tuto yt
-    // @Patch(':id')
-    // updateTodo(@Param('id') id: string, @Body() todo: CreateTodoDto) {
-    //     return this.todosService.update(id, todo);
-    // }
-
     @Post(':id')
     updateTodo(@Param('id') id: string, @Body() todo: CreateTodoDto, @Res() res: Response) {
         this.todosService.update(id, todo);
