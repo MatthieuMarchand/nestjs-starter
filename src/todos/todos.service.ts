@@ -5,24 +5,30 @@ import { CreateTodoDto } from './dto/create-todo.dto';
 @Injectable()
 export class TodosService {
     todos: Todo[] = [
-    {
-        id: 1,
-        title: 'Manger',
-        description: 'Faire à manger',
-        done: false,
-    },
-    {
-        id: 2,
-        title: 'Boire',
-        description: 'Se préparer un chocolat chaud',
-        done: true,
-    },
-    {
-        id: 3,
-        title: 'Se doucher',
-        description: 'Aller prendre une douche',
-        done: false,
-    },
+        {
+            id: 1,
+            title: 'To do list',
+            description: 'Faire une web app avec NestJs',
+            done: true,
+        },
+        {
+            id: 2,
+            title: 'Postuler',
+            description: 'Postuler à THESEUS AI',
+            done: true,
+        },
+        {
+            id: 3,
+            title: 'App météo',
+            description: 'Finir l\' intégration de mon application météorologique',
+            done: false,
+        },
+        {
+            id: 4,
+            title: 'Alternance',
+            description: 'Être recruté par THESEUS AI',
+            done: false,
+        },
     ];
 
     findOne(id: string) {
@@ -32,11 +38,6 @@ export class TodosService {
     findAll(): Todo[] {
         return this.todos;
     }
-
-    //! tuto yt
-    // create(todo: CreateTodoDto) {
-    //     this.todos = [...this.todos, todo];
-    // }
 
     create(todo: CreateTodoDto) {
         const newTodo: Todo = {
