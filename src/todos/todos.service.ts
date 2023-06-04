@@ -40,7 +40,7 @@ export class TodosService {
 
     create(todo: CreateTodoDto) {
         const newTodo: Todo = {
-            id: this.todos.length + 1,
+            id: new Date().getTime(),
             title: todo.title,
             description: todo.description,
             done: false,

@@ -9,17 +9,21 @@
     <title>To Do List</title>
 </head>
 <body>
-    <form action="/todos" method="post">
-        <input type="text" name="title" placeholder="Entrez le titre" required/>
-        <textarea name="description" placeholder="Entrez la description" required></textarea>
-        <button type="submit">Ajouter</button>
-    </form>
-
-    <h1>Todo List</h1>
-
-    <ul id="listDone"></ul>
-    <ul id="listNotDone"></ul>
-
+    <main>
+        <form id="createTodo" action="/todos" method="post">
+            <input type="text" name="title" placeholder="Entrez le titre" required/>
+            <input type="text" name="description" placeholder="Entrez la description" required>
+            <button type="submit">Créer</button>
+        </form>
+        <section>
+            <div id="listButtons">
+                <h2><button>Done</button></h2>
+                <h2><button>Not Done</button></h2>
+            </div>
+            <ul id="listDone" class="list"></ul>
+            <ul id="listNotDone" class="list"></ul>
+        </section>
+    </main>
     <script src="js/displayTodo.js"></script>
     <script src="js/updateDoneTodo.js"></script>
     <script src="js/deleteTodo.js"></script>

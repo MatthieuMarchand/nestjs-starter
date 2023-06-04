@@ -12,13 +12,13 @@ fetch('/todos')
             const li = document.createElement('li');
             const todoDiv = document.createElement('div');
             todoDiv.innerHTML = `
-                <form action="/todos/${todo.id}" method="POST">
+                <form class="todo" action="/todos/${todo.id}" method="POST">
                     <input type="hidden" name="id" value="${todo.id}" required>
-                    <h1><input type="text" name="title" value="${todo.title}" required></h1>
-                    <p><textarea name="description" required>${todo.description}</textarea></p>
+                    <h3><input type="text" name="title" value="${todo.title}" required></h3>
+                    <p><input type="text" name="description" value="${todo.description}" required></p>
                     <button onclick="deleteTodo(${todo.id})">Supprimer</button>
-                    <button class="done${todo.done}" name="done" onclick="updateDoneTodo(${todo.id})">Done</button>
-                    <button type="submit">Mettre à jour</button>
+                    <button class="done${todo.done}" name="done" onclick="updateDoneTodo(${todo.id})">Pas fait</button>
+                    <button type="submit">Enregistrer</button>
                 </form>
             `;
             li.appendChild(todoDiv);
@@ -28,7 +28,7 @@ fetch('/todos')
                 listNotDone.appendChild(li);
             }
             document.querySelectorAll('.donefalse').forEach(function(button) {
-                button.textContent = 'Not done';
+                button.textContent = 'Fait';
             });
         });
     })
