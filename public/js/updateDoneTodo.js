@@ -10,3 +10,10 @@ function updateDoneTodo(id) {
     })
     .catch(error => console.error(error));
 }
+
+function checkEnter(event, id) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        document.getElementById(`form${id}`).submit();
+    }
+}

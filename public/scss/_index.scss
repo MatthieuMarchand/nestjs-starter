@@ -1,31 +1,118 @@
 main {
     max-width: 500px;
-    min-height: 100vh;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 20px;
+}
+
+#createTodo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    button {
+        background-color: $green;
+        color: white;
+        width: 88px;
+        height: 44px;
+        border-radius: 20px;
+        border: solid 2px black;
+    }
+}
+
+#line {
+    margin-top: 40px;
+    margin-bottom: 40px;
+    background-color: black;
+    width: 80%;
+    height: 2px;
     margin-left: auto;
     margin-right: auto;
 }
 
-#createTodo {
-    background: green;
-    display: flex;
-    flex-direction: column;
-}
-
 #listButtons {
-    background: orange;
+    position: relative;
     width: 100%;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    button {
+        background: none;
+        border: none;
+    }
+    #lineListButtons {
+        position: absolute;
+        bottom: -2px;
+        background: black;
+        width: 50px;
+        height: 2px;
+        transform: translate(-50%);
+        transition: .6s ease-in-out;
+    }
 }
 
-#listDone {
-    display: none;
+.todo {
+    width: calc(100% - 24px);
+    padding: 10px;
+    border: solid 2px black;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    input {
+        width: calc(100% - 10px);
+        height: auto;
+        outline: none;
+        border: none;
+    }
+    input:focus {
+        outline: none;
+        border: none;
+    }
+    div:first-of-type {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        margin-top: 5px;
+        div {
+            gap: 10px;
+        }
+    }
 }
 
-.list {
-    overflow-y: scroll;
-    background: blue;
+
+.todo button {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    border-radius: 100%;
+    border: solid 2px black;
 }
-.list::-webkit-scrollbar {
-    display: none;
+.todo button.statusDone {
+    background-color: $blue;
+    color: white;
+    width: 88px;
+    height: 44px;
+    border-radius: 20px;
+}
+.delete {
+    background-color: $red;
+    img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    }
+}
+.save {
+    background-color: $green;
+    img {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    }
 }

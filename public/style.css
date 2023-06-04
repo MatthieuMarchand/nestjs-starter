@@ -1,32 +1,148 @@
+@font-face {
+  font-family: "PPMori-Extralight";
+  src: url(/fonts/mori/PPMori-Extralight.otf);
+}
+@font-face {
+  font-family: "PPMori-Regular";
+  src: url(/fonts/mori/PPMori-Regular.otf);
+}
+@font-face {
+  font-family: "PPMori-SemiBold";
+  src: url(/fonts/mori/PPMori-SemiBold.otf);
+}
+button {
+  cursor: pointer;
+  font-family: "PPMori-SemiBold";
+  font-size: 16px;
+}
+
+h3 * {
+  font-family: "PPMori-Regular";
+  font-size: 16px;
+}
+
+p * {
+  font-family: "PPMori-Extralight";
+  font-size: 16px;
+}
+
 main {
   max-width: 500px;
-  min-height: 100vh;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px;
+}
+
+#createTodo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#createTodo input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+#createTodo button {
+  background-color: #43A047;
+  color: white;
+  width: 88px;
+  height: 44px;
+  border-radius: 20px;
+  border: solid 2px black;
+}
+
+#line {
+  margin-top: 40px;
+  margin-bottom: 40px;
+  background-color: black;
+  width: 80%;
+  height: 2px;
   margin-left: auto;
   margin-right: auto;
 }
 
-#createTodo {
-  background: green;
-  display: flex;
-  flex-direction: column;
-}
-
 #listButtons {
-  background: orange;
+  position: relative;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  margin-bottom: 30px;
+}
+#listButtons button {
+  background: none;
+  border: none;
+}
+#listButtons #lineListButtons {
+  position: absolute;
+  bottom: -2px;
+  background: black;
+  width: 50px;
+  height: 2px;
+  transform: translate(-50%);
+  transition: 0.6s ease-in-out;
 }
 
-#listDone {
-  display: none;
+.todo {
+  width: calc(100% - 24px);
+  padding: 10px;
+  border: solid 2px black;
+  border-radius: 20px;
+  margin-bottom: 20px;
+}
+.todo input {
+  width: calc(100% - 10px);
+  height: auto;
+  outline: none;
+  border: none;
+}
+.todo input:focus {
+  outline: none;
+  border: none;
+}
+.todo div:first-of-type {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  margin-top: 5px;
+}
+.todo div:first-of-type div {
+  gap: 10px;
 }
 
-.list {
-  overflow-y: scroll;
-  background: blue;
+.todo button {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 100%;
+  border: solid 2px black;
 }
 
-.list::-webkit-scrollbar {
-  display: none;
+.todo button.statusDone {
+  background-color: #1976D2;
+  color: white;
+  width: 88px;
+  height: 44px;
+  border-radius: 20px;
+}
+
+.delete {
+  background-color: #D32F2F;
+}
+.delete img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.save {
+  background-color: #43A047;
+}
+.save img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
 }/*# sourceMappingURL=style.css.map */

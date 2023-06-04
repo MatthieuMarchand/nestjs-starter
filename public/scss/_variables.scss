@@ -1,0 +1,19 @@
+// ! colors
+$red: #D32F2F;
+$blue: #1976D2;
+$green: #43A047;
+$grey: #E0E0E0;
+
+// ! fonts
+@font-face {
+    font-family: "PPMori-Extralight";
+    src: url(/fonts/mori/PPMori-Extralight.otf);
+}
+@font-face {
+    font-family: "PPMori-Regular";
+    src: url(/fonts/mori/PPMori-Regular.otf);
+}
+@font-face {
+    font-family: "PPMori-SemiBold";
+    src: url(/fonts/mori/PPMori-SemiBold.otf);
+}

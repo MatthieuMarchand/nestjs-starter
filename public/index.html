@@ -15,10 +15,12 @@
             <input type="text" name="description" placeholder="Entrez la description" required>
             <button type="submit">Créer</button>
         </form>
+        <div id="line"></div>
         <section>
             <div id="listButtons">
-                <h2><button>Done</button></h2>
-                <h2><button>Not Done</button></h2>
+                <h2><button id="buttonDone" onclick="notDoneDisplayed()">Pas fait</button></h2>
+                <h2><button id="buttonNotDone" onclick="doneDisplayed()">Fait</button></h2>
+                <div id="lineListButtons"></div>
             </div>
             <ul id="listDone" class="list"></ul>
             <ul id="listNotDone" class="list"></ul>
@@ -27,5 +29,6 @@
     <script src="js/displayTodo.js"></script>
     <script src="js/updateDoneTodo.js"></script>
     <script src="js/deleteTodo.js"></script>
+    <script src="js/displayLists.js"></script>
 </body>
 </html>

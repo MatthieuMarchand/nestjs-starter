@@ -1,3 +1,6 @@
+const listDone = document.getElementById('listDone');
+const listNotDone = document.getElementById('listNotDone');
+
 fetch('/todos')
 .then(response => {
         if (!response.ok) {
@@ -6,19 +9,21 @@ fetch('/todos')
         return response.json();
     })
     .then(todos => {
-        const listDone = document.getElementById('listDone');
-        const listNotDone = document.getElementById('listNotDone');
         todos.forEach(todo => {
             const li = document.createElement('li');
             const todoDiv = document.createElement('div');
             todoDiv.innerHTML = `
-                <form class="todo" action="/todos/${todo.id}" method="POST">
+                <form id="form${todo.id}" class="todo" action="/todos/${todo.id}" method="POST">
                     <input type="hidden" name="id" value="${todo.id}" required>
-                    <h3><input type="text" name="title" value="${todo.title}" required></h3>
-                    <p><input type="text" name="description" value="${todo.description}" required></p>
-                    <button onclick="deleteTodo(${todo.id})">Supprimer</button>
-                    <button class="done${todo.done}" name="done" onclick="updateDoneTodo(${todo.id})">Pas fait</button>
-                    <button type="submit">Enregistrer</button>
+                    <h3><input type="text" name="title" value="${todo.title}" onkeydown="checkEnter(event, ${todo.id})" required></h3>
+                    <p><input type="text" name="description" value="${todo.description}" onkeydown="checkEnter(event, ${todo.id})" required></p>
+                    <div>
+                        <button class="done${todo.done} statusDone" name="done" onclick="updateDoneTodo(${todo.id})">Pas fait</button>
+                        <div>
+                            <button class="delete" onclick="deleteTodo(${todo.id})"><img src="images/delete.png" alt="icon supprimer"></button>
+                            <button class="save" type="submit"><img src="images/save.png" alt="icon enregistrer"></button>
+                        </div>
+                    </div>
                 </form>
             `;
             li.appendChild(todoDiv);
